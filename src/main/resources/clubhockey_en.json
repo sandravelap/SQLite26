@@ -1,0 +1,68 @@
+{
+  "members": [
+    {
+      "member_id": 1,
+      "first_name": "Carlos",
+      "last_name": "García Martínez",
+      "birth_year": 1992,
+      "join_date": "2018-09-15",
+      "leave_date": null,
+      "playing_position": "Center Forward",
+      "team_category": "Senior A",
+      "roles": [
+        {
+          "role_id": 101,
+          "role_name": "Team Captain",
+          "department": "Sports",
+          "start_date": "2020-10-01",
+          "end_date": null
+        },
+        {
+          "role_id": 102,
+          "role_name": "Board Member",
+          "department": "Board of Directors",
+          "start_date": "2022-06-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "member_id": 2,
+      "first_name": "Laura",
+      "last_name": "Sánchez Gómez",
+      "birth_year": 1998,
+      "join_date": "2020-01-10",
+      "leave_date": null,
+      "playing_position": "Goaltender",
+      "team_category": "Women's A",
+      "roles": [
+        {
+          "role_id": 103,
+          "role_name": "Assistant Coach",
+          "department": "U-12 Academy",
+          "start_date": "2023-09-01",
+          "end_date": null
+        }
+      ]
+    },
+    {
+      "member_id": 3,
+      "first_name": "Mikel",
+      "last_name": "Etxeberria Urkizu",
+      "birth_year": 1985,
+      "join_date": "2012-04-01",
+      "leave_date": "2024-05-31",
+      "playing_position": "Defenseman",
+      "team_category": "Veterans",
+      "roles": [
+        {
+          "role_id": 104,
+          "role_name": "Treasurer",
+          "department": "Board of Directors",
+          "start_date": "2016-01-01",
+          "end_date": "2024-05-31"
+        }
+      ]
+    }
+  ]
+}

@@ -21,8 +21,10 @@ public class MemberRepository {
             stmt.setString(1, newMember.getFirstName());
             stmt.setString(2, newMember.getLastName());
             stmt.setShort(3, newMember.getBirthYear());
-            stmt.setDate(4, newMember.getJoinDate());
-            stmt.setDate(5, newMember.getLeaveDate());
+            stmt.setString(4, String.valueOf(newMember.getJoinDate()));
+            if (newMember.getLeaveDate()!=null) {
+                stmt.setString(5, String.valueOf(newMember.getLeaveDate()));
+            }
             stmt.setInt(6,newMember.getPositionId());
             stmt.setInt(7, newMember.getCategoryId());
             stmt.executeUpdate();
