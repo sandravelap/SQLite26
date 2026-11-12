@@ -14,10 +14,9 @@ public class StructureDB {
         try(Connection conBD = connectionBD.connect()) {
             Statement statement = conBD.createStatement();
             Path sqlScriptPath = Path.of("src/main/resources/chrubenSqlite.sql");
-            //execute batch permite ejecutar el script del archivo cargado previamente como String
+            //execute update se traga como statement un script entero
             String sqlScriptString = Files.readString(sqlScriptPath);
-            statement.addBatch(sqlScriptString);
-            statement.executeBatch();
+            statement.executeUpdate(sqlScriptString);
             message="Script loaded";
         } catch (SQLException ex) {
             message="Error with database: " + ex.getMessage();
