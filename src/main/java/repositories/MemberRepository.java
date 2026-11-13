@@ -3,10 +3,7 @@ package repositories;
 import daos.MemberDAO;
 import database.DBConnection;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class MemberRepository {
@@ -73,8 +70,8 @@ public class MemberRepository {
                 auxMember.setFirstName(rs.getString("first_name"));
                 auxMember.setLastName(rs.getString("last_name"));
                 auxMember.setBirthYear(rs.getShort("birth_year"));
-                auxMember.setJoinDate(rs.getDate("join_date"));
-                auxMember.setLeaveDate(rs.getDate("leave_date"));
+                auxMember.setJoinDate(Date.valueOf(rs.getString("join_date")));
+                //auxMember.setLeaveDate(Date.valueOf(rs.getString("leave_date")));
                 auxMember.setPositionId(rs.getInt("position_id"));
                 auxMember.setCategoryId(rs.getInt("category_id"));
                 activeMembers.add(auxMember);

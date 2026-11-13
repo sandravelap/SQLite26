@@ -91,6 +91,7 @@ public class MemberServices {
             memberUIAux.setFirstName(memberDAO.getFirstName());
             memberUIAux.setLastName(memberDAO.getLastName());
             memberUIAux.setJoinDate(memberDAO.getJoinDate());
+            members.add(memberUIAux);
         }
         return members;
     }
