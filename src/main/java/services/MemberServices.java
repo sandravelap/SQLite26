@@ -6,6 +6,7 @@ import repositories.CategoryRepository;
 import repositories.MemberRepository;
 import repositories.PlayingPositionRepository;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class MemberServices {
@@ -77,5 +78,20 @@ public class MemberServices {
             }
         }
         return message;
+    }
+
+    public ArrayList<MemberUI> activeMembersFromYear(Integer year) {
+        MemberRepository memberRepository = new MemberRepository();
+        ArrayList<MemberUI> members = new ArrayList<>();
+        ArrayList<MemberDAO> membersDAO = memberRepository.activeMembersFromYear(year);
+        //parseo manual de MemberDAO a MemberUI
+        MemberUI memberUIAux;
+        for (MemberDAO memberDAO : membersDAO){
+            memberUIAux =  new MemberUI();
+            memberUIAux.setFirstName(memberDAO.getFirstName());
+            memberUIAux.setLastName(memberDAO.getLastName());
+            memberUIAux.setJoinDate(memberDAO.getJoinDate());
+        }
+        return members;
     }
 }

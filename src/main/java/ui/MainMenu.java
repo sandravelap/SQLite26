@@ -9,6 +9,7 @@ import services.MemberServices;
 import tools.jackson.databind.ObjectMapper;
 
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -24,6 +25,7 @@ public class MainMenu {
             userMethods.myPrinter("1. Read and load JSON file using Jackson");
             userMethods.myPrinter("2. Create data base");
             userMethods.myPrinter("3. Insert new member");
+            userMethods.myPrinter("4. Active Members From Year. ");
             userMethods.myPrinter("0. Exit.");
             processOption(requestOption());
         }while(!exitMenu);
@@ -34,6 +36,7 @@ public class MainMenu {
 
     private void processOption(String option){
         UserMethods userMethods = new UserMethods();
+        MemberServices memberServices = new MemberServices();
         switch(option){
             case "0" -> exitMenu = true;
             case "1" -> {
@@ -53,7 +56,6 @@ public class MainMenu {
             }
             case "3" -> {
                 MemberUI newMember = new MemberUI();
-                MemberServices memberServices = new MemberServices();
                 userMethods.myPrinter("Introduce the data of the new member:\n");
                 newMember.setFirstName(userMethods.requestString("First name: \n"));
                 newMember.setLastName(userMethods.requestString("Last name: \n"));
@@ -62,6 +64,13 @@ public class MainMenu {
                 newMember.setPosition(userMethods.requestString("Playing position: \n"));
                 newMember.setCategory(userMethods.requestString("Category: "));
                 userMethods.myPrinter(memberServices.insertNewMember(newMember));
+            }
+            case "4" -> {
+                Integer year = userMethods.requestInteger("Introduce the join year: ");
+                ArrayList<MemberUI> membersFromYear = memberServices.activeMembersFromYear(year);
+                for (MemberUI member : membersFromYear){
+                    userMethods.myPrinter("Member "+member.getFirstName() + " join date: "+ member.getJoinDate());
+                }
             }
             default -> userMethods.myPrinter("Wrong option.");
         }

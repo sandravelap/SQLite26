@@ -19,7 +19,9 @@ public class MemberRoleRepository {
             pstmt.setInt(1, newMemberRole.getMemberId());
             pstmt.setInt(2, newMemberRole.getRoleId());
             pstmt.setString(3, String.valueOf(newMemberRole.getStartDate()));
-            pstmt.setString(4, String.valueOf(newMemberRole.getEndDate()));
+            if (newMemberRole.getEndDate()!=null) {
+                pstmt.setString(4, String.valueOf(newMemberRole.getEndDate()));
+            }
             pstmt.execute();
             insertOk=true;
         } catch (SQLException e) {
